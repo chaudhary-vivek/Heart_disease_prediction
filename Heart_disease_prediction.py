@@ -14,7 +14,7 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.ensemble import RandomForestClassifier
 
 # Importing the dataset from csv to dataframe
-df = pd.read_csv('D:\Docs\DS\Heart_disease_UCI\heart.csv')
+df = pd.read_csv('heart.csv')
 
 # Part 1: Feature selection
 
@@ -61,7 +61,7 @@ for k in range(1,21):
     knn_classifier = KNeighborsClassifier(n_neighbors = k)
     score=cross_val_score(knn_classifier,X,y,cv=10)
     knn_scores.append(score.mean())
-# The score is maximumat k=12
+# The score is maximum at k=12
 # Evaluating KNN model with k=12
 knn_classifier = KNeighborsClassifier(n_neighbors = 12)
 score=cross_val_score(knn_classifier,X,y,cv=10)
@@ -79,6 +79,3 @@ print(score.mean())
 
 # The random forest has an accuracy of 82.49%
 # Hence, it is better to use KNN which has an accuracy of 84.45%
-
-
-
